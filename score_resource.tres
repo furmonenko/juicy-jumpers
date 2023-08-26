@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Score" load_steps=2 format=3 uid="uid://bngldww2eg000"]
+
+[sub_resource type="GDScript" id="GDScript_1cmb0"]
+script/source = "extends Resource
+class_name Score
+
+var score : int
+var max_score : int
+var next_level : PackedScene
+
+func _init() -> void:
+	score = 0
+	next_level = null
+
+func set_score(new_score):
+	score = new_score
+	
+	if score > max_score:
+		max_score = score
+
+func set_next_level(new_next_level):
+	next_level = new_next_level
+
+func get_score():
+	return score
+"
+
+[resource]
+script = SubResource("GDScript_1cmb0")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://2kukqwpr6sgb"]
+
+[ext_resource type="Script" path="res://Scripts/chains_path.gd" id="1_7ovhp"]
+[ext_resource type="Texture2D" uid="uid://bv5xgspui7e6y" path="res://Assets/Traps/Saw/Chain.png" id="1_l1c7i"]
+[ext_resource type="PackedScene" uid="uid://cx2ks4r77hmpb" path="res://Scenes/saw.tscn" id="3_5vyiq"]
+
+[sub_resource type="Curve2D" id="Curve2D_8xx6f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 17, 2, 0, 0, 0, 0, 66.8, -0.600006, 0, 0, 0, 0, 134, 0)
+}
+point_count = 3
+
+[node name="Chains Path" type="Path2D"]
+texture_repeat = 2
+curve = SubResource("Curve2D_8xx6f")
+script = ExtResource("1_7ovhp")
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 2
+rotation = -0.320079
+points = PackedVector2Array(0, 0, 242.998, 80.5483)
+width = 12.0
+texture = ExtResource("1_l1c7i")
+texture_mode = 1
+sharp_limit = 10.0
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(29.8182, 1.33077)
+rotation = -0.0521616
+progress = 12.8778
+
+[node name="Saw" parent="PathFollow2D" instance=ExtResource("3_5vyiq")]
