@@ -13,8 +13,8 @@ func state_process(_delta):
 	if Input.is_action_just_pressed("Jump"):
 		character.wall_jump()
 		playback.travel("Double_Jump")
-	
-	if Input.is_action_just_pressed("Move Left") || Input.is_action_just_pressed("Move Right"):
+		
+	elif Input.is_action_just_pressed("Move Left") || Input.is_action_just_pressed("Move Right"):
 		playback.travel("Fall")
 		character.direction = -character.direction
 		character.velocity.x = character.direction * 100

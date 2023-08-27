@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cn1gf4dy13k48" path="res://Scenes/spike.tscn" id="3_dk0m5"]
 [ext_resource type="Resource" uid="uid://bngldww2eg000" path="res://score_resource.tres" id="3_dlcqf"]
 [ext_resource type="PackedScene" uid="uid://dkes3f5xnc4le" path="res://Scenes/Fruits/apple.tscn" id="3_yro1c"]
-[ext_resource type="PackedScene" uid="uid://cx84ajhc3tgcs" path="res://Scenes/Obstacles/jump_pad.tscn" id="8_hhq4i"]
+[ext_resource type="PackedScene" uid="uid://buk0kuk24m2eb" path="res://Scenes/escape_menu.tscn" id="4_khgnq"]
 [ext_resource type="PackedScene" uid="uid://bqf0b3oakmvi4" path="res://Scenes/player.tscn" id="9_fvp2p"]
 [ext_resource type="PackedScene" uid="uid://b00456xk0q6g7" path="res://Scenes/end_point.tscn" id="10_g6ih4"]
 
@@ -32,15 +32,13 @@ script = ExtResource("1_eopox")
 next_level = ExtResource("2_vjvsw")
 score_res = ExtResource("3_dlcqf")
 
+[node name="Escape Menu" parent="." instance=ExtResource("4_khgnq")]
+
 [node name="BackGround" parent="." instance=ExtResource("2_lvkfk")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="UI" instance=ExtResource("2_chaq6")]
-offset_left = 16.0
-offset_top = -8.0
-offset_right = 16.0
-offset_bottom = -8.0
 
 [node name="EndPoint" parent="." instance=ExtResource("10_g6ih4")]
 position = Vector2(41, 192)
@@ -92,12 +90,6 @@ rotation = 3.14159
 [node name="Spike4" parent="Traps" instance=ExtResource("3_dk0m5")]
 position = Vector2(233, 224)
 
-[node name="Spike13" parent="Traps" instance=ExtResource("3_dk0m5")]
-position = Vector2(249, 224)
-
-[node name="Jump Pad" parent="Traps" instance=ExtResource("8_hhq4i")]
-position = Vector2(273, 208)
-
 [node name="Items" type="Node2D" parent="."]
 z_index = -10
 
@@ -140,20 +132,20 @@ position = Vector2(408, 224)
 [node name="Apple10" parent="Items" instance=ExtResource("3_yro1c")]
 position = Vector2(408, 192)
 
+[node name="Apple6" parent="Items" instance=ExtResource("3_yro1c")]
+position = Vector2(472, 264)
+
 [node name="Apple7" parent="Items" instance=ExtResource("3_yro1c")]
-position = Vector2(472, 256)
+position = Vector2(472, 232)
 
 [node name="Apple8" parent="Items" instance=ExtResource("3_yro1c")]
-position = Vector2(472, 224)
+position = Vector2(472, 200)
 
 [node name="Apple11" parent="Items" instance=ExtResource("3_yro1c")]
-position = Vector2(472, 192)
+position = Vector2(472, 168)
 
 [node name="Apple12" parent="Items" instance=ExtResource("3_yro1c")]
-position = Vector2(472, 160)
-
-[node name="Apple19" parent="Items" instance=ExtResource("3_yro1c")]
-position = Vector2(472, 128)
+position = Vector2(472, 136)
 
 [node name="TileMap" parent="." instance=ExtResource("1_cok05")]
 layer_0/name = "Background"
@@ -204,4 +196,5 @@ position = Vector2(41, 176)
 [node name="SpawnPosition" type="Marker2D" parent="."]
 position = Vector2(41, 182)
 
+[connection signal="change_level" from="Escape Menu" to="." method="_on_escape_menu_change_level"]
 [connection signal="player_entered" from="EndPoint" to="." method="_on_end_point_player_entered"]

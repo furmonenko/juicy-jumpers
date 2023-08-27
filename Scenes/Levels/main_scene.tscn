@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy3kxwkp2be3o"]
+
+[ext_resource type="PackedScene" uid="uid://csnhkxij4kwv7" path="res://Scenes/Levels/level_01.tscn" id="1_mjrg1"]
+[ext_resource type="Script" path="res://Scripts/Levels/main_scene.gd" id="1_tud3o"]
+[ext_resource type="PackedScene" uid="uid://fgaojvskrpel" path="res://Scenes/Levels/level_02.tscn" id="2_5sl1k"]
+[ext_resource type="PackedScene" uid="uid://dhuo3g4s1ftak" path="res://Scenes/Levels/level_03.tscn" id="3_v360t"]
+
+[node name="Main Scene" type="Node2D"]
+script = ExtResource("1_tud3o")
+
+[node name="Firts Biome" type="Node" parent="."]
+
+[node name="Level 1" parent="Firts Biome" instance=ExtResource("1_mjrg1")]
+visible = false
+
+[node name="Level 2" parent="Firts Biome" instance=ExtResource("2_5sl1k")]
+visible = false
+
+[node name="Level 3" parent="Firts Biome" instance=ExtResource("3_v360t")]
+visible = false

@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://bngldww2eg000" path="res://score_resource.tres" id="2_lj7vk"]
 [ext_resource type="PackedScene" uid="uid://bp5p80rncbtit" path="res://Scenes/back_ground.tscn" id="3_r7elt"]
 [ext_resource type="PackedScene" uid="uid://c172wwusrpsx0" path="res://Scenes/hud.tscn" id="4_fnhsq"]
-[ext_resource type="PackedScene" uid="uid://2kukqwpr6sgb" path="res://Scenes/chains.tscn" id="4_yi1v7"]
+[ext_resource type="PackedScene" uid="uid://2kukqwpr6sgb" path="res://Scenes/Obstacles/chains.tscn" id="4_yi1v7"]
 [ext_resource type="PackedScene" uid="uid://b00456xk0q6g7" path="res://Scenes/end_point.tscn" id="5_dy6ix"]
 [ext_resource type="PackedScene" uid="uid://cn1gf4dy13k48" path="res://Scenes/spike.tscn" id="6_3gajv"]
 [ext_resource type="PackedScene" uid="uid://dkes3f5xnc4le" path="res://Scenes/Fruits/apple.tscn" id="8_weelu"]

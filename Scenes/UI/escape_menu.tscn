@@ -1,0 +1,213 @@
+[gd_scene load_steps=16 format=3 uid="uid://bst4lvsv2a3jo"]
+
+[ext_resource type="Texture2D" uid="uid://dt1cfglc14mli" path="res://Assets/Menu/Levels/01.png" id="1_ccyph"]
+[ext_resource type="FontFile" uid="uid://c38uw5i4tf5k8" path="res://Fonts/Kenney Mini.ttf" id="1_on2th"]
+[ext_resource type="Script" path="res://Scripts/escape_menu.gd" id="1_t3pts"]
+[ext_resource type="Script" path="res://Scripts/level_button.gd" id="2_lyxe0"]
+[ext_resource type="PackedScene" uid="uid://db41h851u3fal" path="res://Scenes/Levels/test_level.tscn" id="3_r0l87"]
+[ext_resource type="Texture2D" uid="uid://bthx3h4cvdn0i" path="res://Assets/Menu/Levels/02.png" id="4_ktc8h"]
+[ext_resource type="PackedScene" uid="uid://csnhkxij4kwv7" path="res://Scenes/Levels/level_01.tscn" id="4_ys7du"]
+[ext_resource type="Texture2D" uid="uid://pfdulosbmktf" path="res://Assets/Menu/Levels/03.png" id="5_jb36c"]
+[ext_resource type="Texture2D" uid="uid://dqyy83txdichn" path="res://Assets/Menu/Levels/04.png" id="6_1gvri"]
+[ext_resource type="PackedScene" uid="uid://fgaojvskrpel" path="res://Scenes/Levels/level_02.tscn" id="6_byc7g"]
+[ext_resource type="Texture2D" uid="uid://dk2rucicwbpc2" path="res://Assets/Menu/Levels/05.png" id="7_sxn8h"]
+[ext_resource type="PackedScene" uid="uid://dhuo3g4s1ftak" path="res://Scenes/Levels/level_03.tscn" id="8_80agc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jm6rg"]
+bg_color = Color(0.0156863, 0.0156863, 0.0156863, 0.741176)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_ydcif"]
+default_font = ExtResource("1_on2th")
+
+[sub_resource type="LabelSettings" id="LabelSettings_nt0nq"]
+font = ExtResource("1_on2th")
+font_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[node name="Escape Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t3pts")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = 144.0
+offset_right = 80.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jm6rg")
+
+[node name="Continue Button" type="Button" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 32.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ydcif")
+text = "CONTINUE"
+flat = true
+
+[node name="Exit Button" type="Button" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ydcif")
+text = "EXIT"
+flat = true
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.0
+offset_top = 8.0
+offset_right = 22.0
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "LEVELS"
+label_settings = SubResource("LabelSettings_nt0nq")
+
+[node name="Button_lvl_01" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 24.0
+offset_right = -37.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+icon = ExtResource("1_ccyph")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_lyxe0")
+level_scene = ExtResource("4_ys7du")
+
+[node name="Button_lvl_02" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 24.0
+offset_right = -13.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+icon = ExtResource("4_ktc8h")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_lyxe0")
+level_scene = ExtResource("6_byc7g")
+
+[node name="Button_lvl_03" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = 24.0
+offset_right = 11.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+icon = ExtResource("5_jb36c")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_lyxe0")
+level_scene = ExtResource("8_80agc")
+
+[node name="Button_lvl_04" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 35.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+icon = ExtResource("6_1gvri")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_lyxe0")
+level_scene = ExtResource("3_r0l87")
+
+[node name="Button_lvl_05" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 59.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+icon = ExtResource("7_sxn8h")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_lyxe0")
+level_scene = ExtResource("3_r0l87")
+
+[connection signal="pressed" from="Button_lvl_01" to="Button_lvl_01" method="_on_pressed"]
+[connection signal="pressed" from="Button_lvl_02" to="Button_lvl_02" method="_on_pressed"]
+[connection signal="pressed" from="Button_lvl_03" to="Button_lvl_03" method="_on_pressed"]
+[connection signal="pressed" from="Button_lvl_04" to="Button_lvl_04" method="_on_pressed"]
+[connection signal="pressed" from="Button_lvl_05" to="Button_lvl_05" method="_on_pressed"]
