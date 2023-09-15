@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bst4lvsv2a3jo"]
+[gd_scene load_steps=17 format=3 uid="uid://bst4lvsv2a3jo"]
 
 [ext_resource type="Texture2D" uid="uid://dt1cfglc14mli" path="res://Assets/Menu/Levels/01.png" id="1_ccyph"]
 [ext_resource type="FontFile" uid="uid://c38uw5i4tf5k8" path="res://Fonts/Kenney Mini.ttf" id="1_on2th"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://fgaojvskrpel" path="res://Scenes/Levels/level_02.tscn" id="6_byc7g"]
 [ext_resource type="Texture2D" uid="uid://dk2rucicwbpc2" path="res://Assets/Menu/Levels/05.png" id="7_sxn8h"]
 [ext_resource type="PackedScene" uid="uid://dhuo3g4s1ftak" path="res://Scenes/Levels/level_03.tscn" id="8_80agc"]
+[ext_resource type="PackedScene" uid="uid://bwbljc5gefa40" path="res://Scenes/Levels/level_04.tscn" id="11_xoto8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jm6rg"]
 bg_color = Color(0.0156863, 0.0156863, 0.0156863, 0.741176)
@@ -183,7 +184,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("2_lyxe0")
-level_scene = ExtResource("3_r0l87")
+level_scene = ExtResource("11_xoto8")
 
 [node name="Button_lvl_05" type="Button" parent="."]
 layout_mode = 1

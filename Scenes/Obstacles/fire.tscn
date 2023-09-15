@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://me0y4ojnltm4"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacles/fire.gd" id="1_h2hpk"]
+[ext_resource type="Texture2D" uid="uid://b4v50cbgmhbi3" path="res://Assets/Traps/Fire/Off.png" id="1_lj3wk"]
+[ext_resource type="Texture2D" uid="uid://biyvlg2l567au" path="res://Assets/Traps/Fire/On (16x32).png" id="2_q0vu8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t66ex"]
+atlas = ExtResource("1_lj3wk")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74pi0"]
+atlas = ExtResource("2_q0vu8")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47cbl"]
+atlas = ExtResource("2_q0vu8")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4m5o"]
+atlas = ExtResource("2_q0vu8")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uiyl4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t66ex")
+}],
+"loop": true,
+"name": &"Off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74pi0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47cbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4m5o")
+}],
+"loop": true,
+"name": &"On",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vj06e"]
+size = Vector2(20, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojtpd"]
+size = Vector2(20, 24)
+
+[node name="Fire" type="Node2D"]
+script = ExtResource("1_h2hpk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uiyl4")
+animation = &"On"
+autoplay = "Off"
+frame_progress = 0.267265
+
+[node name="Turn On Area" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Turn On Area"]
+position = Vector2(0, -17.3125)
+shape = SubResource("RectangleShape2D_vj06e")
+
+[node name="Hit Area" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit Area"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_ojtpd")
+debug_color = Color(0.294118, 0.52549, 0.917647, 0.419608)
+
+[connection signal="body_entered" from="Turn On Area" to="." method="_on_turn_on_area_body_entered"]

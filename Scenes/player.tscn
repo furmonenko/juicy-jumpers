@@ -711,6 +711,7 @@ graph_offset = Vector2(71, -53)
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -16)
 collision_layer = 2
+collision_mask = 193
 script = ExtResource("1_qn1jx")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state", "character", "animation_tree")]
@@ -764,7 +765,7 @@ shape = SubResource("RectangleShape2D_mwjfg")
 metadata/_edit_group_ = true
 
 [node name="HitArea" type="Area2D" parent="."]
-collision_mask = 4
+collision_mask = 36
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
 position = Vector2(0, 5)

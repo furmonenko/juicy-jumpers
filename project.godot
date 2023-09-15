@@ -59,6 +59,10 @@ Pause={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Traps"
 2d_physics/layer_4="Jump_Pad"
+2d_physics/layer_5="AI_Finish_Point"
+2d_physics/layer_6="Enemy"
+2d_physics/layer_7="Enemy Death"
+2d_physics/layer_8="Turn On Area"
 
 [rendering]
 

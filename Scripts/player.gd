@@ -96,6 +96,10 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 	print(area.name)
 	hit()
 
+#func _on_hit_area_body_entered(body: Node2D) -> void:
+#	if body is Enemy:
+#		hit()
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Move Down"):
 		global_position.y += 1
