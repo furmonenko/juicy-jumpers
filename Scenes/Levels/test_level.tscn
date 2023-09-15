@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://db41h851u3fal"]
+[gd_scene load_steps=8 format=3 uid="uid://db41h851u3fal"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/test_level.gd" id="1_iovte"]
 [ext_resource type="PackedScene" uid="uid://bqf0b3oakmvi4" path="res://Scenes/player.tscn" id="1_k7xq3"]
 [ext_resource type="PackedScene" uid="uid://cx84ajhc3tgcs" path="res://Scenes/Obstacles/jump_pad.tscn" id="2_ojllx"]
+[ext_resource type="PackedScene" uid="uid://crtjwcss7cqfm" path="res://Scenes/Obstacles/fan_platform.tscn" id="4_6x2t4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0r32"]
 size = Vector2(232.125, 102.5)
@@ -35,10 +36,15 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_jbscv")
 debug_color = Color(0.929412, 0.156863, 0.537255, 0.419608)
 
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+
 [node name="Player" parent="." instance=ExtResource("1_k7xq3")]
 position = Vector2(168, 152)
 
 [node name="Jump Pad" parent="." instance=ExtResource("2_ojllx")]
 position = Vector2(339, 251)
+
+[node name="Fan Platform" parent="." instance=ExtResource("4_6x2t4")]
+position = Vector2(292, 251)
 
 [connection signal="player_on_jump_pad" from="Jump Pad" to="." method="_on_player_on_jump_pad"]

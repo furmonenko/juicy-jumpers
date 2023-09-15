@@ -672,8 +672,6 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7xi5x"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hp7yk"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mvfha"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d11dk"]
@@ -682,13 +680,15 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qs0pw"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wekhv"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k7rfm"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pi0d0"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4wh1k"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hp7yk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wekhv"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k7rfm"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_06h81"]
 states/Double_Jump/node = SubResource("AnimationNodeAnimation_ddcoc")
@@ -704,9 +704,9 @@ states/Jump/node = SubResource("AnimationNodeAnimation_p5cwf")
 states/Jump/position = Vector2(588.154, -22.0863)
 states/Start/position = Vector2(244, -24.8509)
 states/Wall_Jump/node = SubResource("AnimationNodeAnimation_w5odt")
-states/Wall_Jump/position = Vector2(378.568, 197.64)
-transitions = ["Start", "Idle & Walk", SubResource("AnimationNodeStateMachineTransition_6wokb"), "Idle & Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_jcun3"), "Jump", "Double_Jump", SubResource("AnimationNodeStateMachineTransition_5s430"), "Double_Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_mgugb"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_ibbuq"), "Fall", "Idle & Walk", SubResource("AnimationNodeStateMachineTransition_hjyth"), "Fall", "Wall_Jump", SubResource("AnimationNodeStateMachineTransition_d3kuj"), "Double_Jump", "Wall_Jump", SubResource("AnimationNodeStateMachineTransition_tjljl"), "Jump", "Wall_Jump", SubResource("AnimationNodeStateMachineTransition_7xi5x"), "Wall_Jump", "Jump", SubResource("AnimationNodeStateMachineTransition_hp7yk"), "Idle & Walk", "Hit", SubResource("AnimationNodeStateMachineTransition_mvfha"), "Double_Jump", "Hit", SubResource("AnimationNodeStateMachineTransition_d11dk"), "Jump", "Hit", SubResource("AnimationNodeStateMachineTransition_2vmch"), "Fall", "Hit", SubResource("AnimationNodeStateMachineTransition_qs0pw"), "Wall_Jump", "Hit", SubResource("AnimationNodeStateMachineTransition_wekhv"), "Wall_Jump", "Idle & Walk", SubResource("AnimationNodeStateMachineTransition_k7rfm"), "Fall", "Double_Jump", SubResource("AnimationNodeStateMachineTransition_pi0d0"), "Wall_Jump", "Double_Jump", SubResource("AnimationNodeStateMachineTransition_4wh1k")]
-graph_offset = Vector2(-17, -82)
+states/Wall_Jump/position = Vector2(430.678, 285.64)
+transitions = ["Start", "Idle & Walk", SubResource("AnimationNodeStateMachineTransition_6wokb"), "Idle & Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_jcun3"), "Jump", "Double_Jump", SubResource("AnimationNodeStateMachineTransition_5s430"), "Double_Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_mgugb"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_ibbuq"), "Fall", "Idle & Walk", SubResource("AnimationNodeStateMachineTransition_hjyth"), "Fall", "Wall_Jump", SubResource("AnimationNodeStateMachineTransition_d3kuj"), "Double_Jump", "Wall_Jump", SubResource("AnimationNodeStateMachineTransition_tjljl"), "Jump", "Wall_Jump", SubResource("AnimationNodeStateMachineTransition_7xi5x"), "Idle & Walk", "Hit", SubResource("AnimationNodeStateMachineTransition_mvfha"), "Double_Jump", "Hit", SubResource("AnimationNodeStateMachineTransition_d11dk"), "Jump", "Hit", SubResource("AnimationNodeStateMachineTransition_2vmch"), "Fall", "Hit", SubResource("AnimationNodeStateMachineTransition_qs0pw"), "Fall", "Double_Jump", SubResource("AnimationNodeStateMachineTransition_pi0d0"), "Wall_Jump", "Double_Jump", SubResource("AnimationNodeStateMachineTransition_4wh1k"), "Wall_Jump", "Jump", SubResource("AnimationNodeStateMachineTransition_hp7yk"), "Wall_Jump", "Hit", SubResource("AnimationNodeStateMachineTransition_wekhv"), "Wall_Jump", "Idle & Walk", SubResource("AnimationNodeStateMachineTransition_k7rfm")]
+graph_offset = Vector2(71, -53)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -16)

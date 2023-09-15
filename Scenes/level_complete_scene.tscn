@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://benjv5bt10o8b"]
 
-[ext_resource type="PackedScene" uid="uid://bp5p80rncbtit" path="res://Scenes/back_ground.tscn" id="1_p72tj"]
+[ext_resource type="PackedScene" uid="uid://bp5p80rncbtit" path="res://Scenes/UI/back_ground.tscn" id="1_p72tj"]
 [ext_resource type="Script" path="res://Scripts/level_complete_scene.gd" id="1_tib0l"]
 [ext_resource type="FontFile" uid="uid://dldkfanamu8bh" path="res://Fonts/Kenney High Square.ttf" id="2_7tq25"]
 [ext_resource type="Resource" uid="uid://bngldww2eg000" path="res://score_resource.tres" id="2_cjxim"]

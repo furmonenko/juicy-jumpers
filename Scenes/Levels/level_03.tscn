@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dhuo3g4s1ftak"]
+[gd_scene load_steps=17 format=3 uid="uid://dhuo3g4s1ftak"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_hdmqi"]
 [ext_resource type="Resource" uid="uid://bngldww2eg000" path="res://score_resource.tres" id="2_lj7vk"]
-[ext_resource type="PackedScene" uid="uid://bp5p80rncbtit" path="res://Scenes/back_ground.tscn" id="3_r7elt"]
+[ext_resource type="PackedScene" uid="uid://bwbljc5gefa40" path="res://Scenes/Levels/level_04.tscn" id="2_x8bwk"]
+[ext_resource type="PackedScene" uid="uid://bp5p80rncbtit" path="res://Scenes/UI/back_ground.tscn" id="3_r7elt"]
 [ext_resource type="PackedScene" uid="uid://c172wwusrpsx0" path="res://Scenes/hud.tscn" id="4_fnhsq"]
 [ext_resource type="PackedScene" uid="uid://2kukqwpr6sgb" path="res://Scenes/Obstacles/chains.tscn" id="4_yi1v7"]
 [ext_resource type="PackedScene" uid="uid://b00456xk0q6g7" path="res://Scenes/end_point.tscn" id="5_dy6ix"]
@@ -24,8 +25,9 @@ size = Vector2(82, 48.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7e3y"]
 size = Vector2(66, 64.25)
 
-[node name="Level 2" type="Node2D"]
+[node name="Level 3" type="Node2D"]
 script = ExtResource("1_hdmqi")
+next_level = ExtResource("2_x8bwk")
 score_res = ExtResource("2_lj7vk")
 
 [node name="BackGround" parent="." instance=ExtResource("3_r7elt")]

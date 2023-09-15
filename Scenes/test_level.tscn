@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://8a1ioora8olt"]
+[gd_scene load_steps=4 format=3 uid="uid://8a1ioora8olt"]
 
 [ext_resource type="PackedScene" uid="uid://bqf0b3oakmvi4" path="res://Scenes/player.tscn" id="1_ml7ji"]
+[ext_resource type="PackedScene" uid="uid://crtjwcss7cqfm" path="res://Scenes/Obstacles/fan_platform.tscn" id="2_n4fx3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahyry"]
 size = Vector2(525, 58)
@@ -15,3 +16,6 @@ shape = SubResource("RectangleShape2D_ahyry")
 
 [node name="Player" parent="." instance=ExtResource("1_ml7ji")]
 position = Vector2(144, 216)
+
+[node name="Fan Platform" parent="." instance=ExtResource("2_n4fx3")]
+position = Vector2(249, 235)

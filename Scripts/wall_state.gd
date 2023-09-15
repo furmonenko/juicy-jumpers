@@ -14,15 +14,16 @@ func state_process(_delta):
 		character.wall_jump()
 		playback.travel("Double_Jump")
 		
-	elif Input.is_action_just_pressed("Move Left") || Input.is_action_just_pressed("Move Right"):
-		playback.travel("Fall")
-		character.direction = -character.direction
-		character.velocity.x = character.direction * 100
-	
 	if character.is_on_wall() && character.velocity.y > 0:
 		character.velocity.y = 10
 	else:
 		next_state = falling_state
+		
+	if Input.is_action_just_pressed("Move Left") || Input.is_action_just_pressed("Move Right"):
+		playback.travel("Fall")
+		character.direction = -character.direction
+		character.velocity.x = character.direction * 100
+		next_state = air_state
 	
 	if character.is_on_floor():
 		next_state = ground_state

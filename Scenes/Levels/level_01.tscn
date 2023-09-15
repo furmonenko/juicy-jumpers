@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bwmc7c4kgjyxu" path="res://Scenes/tile_map.tscn" id="1_cok05"]
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_eopox"]
 [ext_resource type="PackedScene" uid="uid://c172wwusrpsx0" path="res://Scenes/hud.tscn" id="2_chaq6"]
-[ext_resource type="PackedScene" uid="uid://bp5p80rncbtit" path="res://Scenes/back_ground.tscn" id="2_lvkfk"]
+[ext_resource type="PackedScene" uid="uid://bp5p80rncbtit" path="res://Scenes/UI/back_ground.tscn" id="2_lvkfk"]
 [ext_resource type="PackedScene" uid="uid://fgaojvskrpel" path="res://Scenes/Levels/level_02.tscn" id="2_vjvsw"]
 [ext_resource type="PackedScene" uid="uid://cn1gf4dy13k48" path="res://Scenes/spike.tscn" id="3_dk0m5"]
 [ext_resource type="Resource" uid="uid://bngldww2eg000" path="res://score_resource.tres" id="3_dlcqf"]
@@ -37,10 +37,6 @@ score_res = ExtResource("3_dlcqf")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="UI" instance=ExtResource("2_chaq6")]
-offset_left = 16.0
-offset_top = -8.0
-offset_right = 16.0
-offset_bottom = -8.0
 
 [node name="EndPoint" parent="." instance=ExtResource("10_g6ih4")]
 position = Vector2(41, 192)
@@ -52,11 +48,11 @@ z_index = -100
 position = Vector2(185, 224)
 
 [node name="Spike11" parent="Traps" instance=ExtResource("3_dk0m5")]
-position = Vector2(144, 136)
+position = Vector2(144, 168)
 rotation = 1.5708
 
 [node name="Spike12" parent="Traps" instance=ExtResource("3_dk0m5")]
-position = Vector2(224, 104)
+position = Vector2(207, 136)
 rotation = 1.5708
 
 [node name="Spike2" parent="Traps" instance=ExtResource("3_dk0m5")]
@@ -105,16 +101,10 @@ z_index = -10
 position = Vector2(296, 120)
 
 [node name="Apple4" parent="Items" instance=ExtResource("3_yro1c")]
-position = Vector2(104, 112)
-
-[node name="Apple18" parent="Items" instance=ExtResource("3_yro1c")]
-position = Vector2(136, 112)
+position = Vector2(122, 144)
 
 [node name="Apple13" parent="Items" instance=ExtResource("3_yro1c")]
-position = Vector2(184, 80)
-
-[node name="Apple17" parent="Items" instance=ExtResource("3_yro1c")]
-position = Vector2(216, 80)
+position = Vector2(185, 112)
 
 [node name="Apple2" parent="Items" instance=ExtResource("3_yro1c")]
 position = Vector2(320, 120)
@@ -172,7 +162,7 @@ layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array(393227, 786432, 4, 393228, 851968, 4, 393229, 917504, 4, 524294, 786432, 4, 524295, 851968, 4, 524296, 917504, 4)
+layer_2/tile_data = PackedInt32Array(655366, 786432, 4, 655367, 851968, 4, 655368, 917504, 4, 524299, 851968, 4, 524300, 917504, 4, 524298, 786432, 4)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(3, 16)

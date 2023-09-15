@@ -18,6 +18,7 @@ var direction : float
 var points : int
 var freeze = false
 var game_over = false
+var should_fly :bool = false
 
 signal player_died
 
@@ -28,6 +29,15 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if freeze:
 		return
+	
+	if should_fly:
+		velocity.y = -200
+#		elif
+#		velocity.y -= 50
+		# state_machine.switch_state($StateMachine/AirState)
+#	else:
+#		if velocity.y <= 0:
+#			velocity.y += 10
 	
 	if !is_on_floor():
 		velocity.y += GRAVITY
@@ -85,3 +95,7 @@ func add_points(added_points):
 func _on_hit_area_area_entered(area: Area2D) -> void:
 	print(area.name)
 	hit()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("Move Down"):
+		global_position.y += 1

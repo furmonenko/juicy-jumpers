@@ -34,7 +34,7 @@ func _ready() -> void:
 		item.connect("item_picked_up", _on_item_picked_up)
 		max_score += item.ITEM_POINTS
 
-	score_to_finish = max_score * 0.8
+	score_to_finish = max_score
 	score_to_finish = score_to_finish - fmod(score_to_finish, 10.0)
 	
 	hud.set_needed_score_label(score_to_finish)
