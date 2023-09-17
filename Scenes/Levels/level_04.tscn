@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bwbljc5gefa40"]
+[gd_scene load_steps=19 format=3 uid="uid://bwbljc5gefa40"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_epb4f"]
 [ext_resource type="Resource" uid="uid://bngldww2eg000" path="res://score_resource.tres" id="2_eivxc"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b00456xk0q6g7" path="res://Scenes/end_point.tscn" id="5_um08c"]
 [ext_resource type="PackedScene" uid="uid://2kukqwpr6sgb" path="res://Scenes/Obstacles/chains.tscn" id="7_23w5k"]
 [ext_resource type="PackedScene" uid="uid://cwkpnf3d4k5dk" path="res://Scenes/Fruits/cherries.tscn" id="8_l5t4r"]
-[ext_resource type="PackedScene" uid="uid://cn1gf4dy13k48" path="res://Scenes/spike.tscn" id="8_qh2rl"]
+[ext_resource type="PackedScene" uid="uid://cn1gf4dy13k48" path="res://Scenes/Obstacles/spike.tscn" id="8_qh2rl"]
 [ext_resource type="PackedScene" uid="uid://dkes3f5xnc4le" path="res://Scenes/Fruits/apple.tscn" id="9_ykpfy"]
 [ext_resource type="PackedScene" uid="uid://bwmc7c4kgjyxu" path="res://Scenes/tile_map.tscn" id="10_ci8u8"]
 [ext_resource type="PackedScene" uid="uid://cx84ajhc3tgcs" path="res://Scenes/Obstacles/jump_pad.tscn" id="10_qj7ux"]
@@ -15,16 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://me0y4ojnltm4" path="res://Scenes/Obstacles/fire.tscn" id="13_j35sk"]
 [ext_resource type="PackedScene" uid="uid://cifvqat6ava64" path="res://Scenes/Enemies/mushroom.tscn" id="15_m1t5h"]
 [ext_resource type="PackedScene" uid="uid://crtjwcss7cqfm" path="res://Scenes/Obstacles/fan_platform.tscn" id="15_qebbq"]
-[ext_resource type="Script" path="res://Scenes/Enemies/AI_FinishPoint.gd" id="16_j3pwn"]
+[ext_resource type="PackedScene" uid="uid://cs7euki5k1x0m" path="res://Scenes/Enemies/ai_finish_point.tscn" id="16_omax5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnmcx"]
 size = Vector2(18, 176.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_va4eq"]
 size = Vector2(9, 64)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoi6s"]
-size = Vector2(9.5, 56)
 
 [node name="Level 4" type="Node2D"]
 script = ExtResource("1_epb4f")
@@ -79,7 +76,7 @@ position = Vector2(-2, 1.52588e-05)
 points = PackedVector2Array(0, 0, 136.686, 45.3084)
 
 [node name="PathFollow2D" parent="Traps/Chains Path2" index="1"]
-position = Vector2(88.4098, -0.407059)
+position = Vector2(88.4232, -0.40694)
 rotation = 0.00892842
 progress = 71.497
 
@@ -190,30 +187,18 @@ position = Vector2(504, 208)
 rotation = -1.5708
 
 [node name="CollisionShape2D" parent="Fire/Turn On Area" index="0"]
-position = Vector2(0, -16)
+position = Vector2(9.15527e-05, -24)
 
 [node name="Fan Platform" parent="." instance=ExtResource("15_qebbq")]
 position = Vector2(432, 256)
 scale = Vector2(-1, 1)
 
 [node name="Player" parent="." instance=ExtResource("11_p8x0v")]
-position = Vector2(432, 62)
+position = Vector2(40, 256)
 
-[node name="AI_FinishPoint" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 32
-script = ExtResource("16_j3pwn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AI_FinishPoint"]
-position = Vector2(283.25, 37)
-shape = SubResource("RectangleShape2D_yoi6s")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="AI_FinishPoint"]
-position = Vector2(68, 37)
-shape = SubResource("RectangleShape2D_yoi6s")
+[node name="AI_FinishPoint" parent="." instance=ExtResource("16_omax5")]
 
 [connection signal="player_entered" from="EndPoint" to="." method="_on_end_point_player_entered"]
-[connection signal="body_entered" from="AI_FinishPoint" to="AI_FinishPoint" method="_on_body_entered"]
 
 [editable path="Traps/Chains Path2"]
 [editable path="Fire"]

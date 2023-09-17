@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bbbofs8sgw3by"]
 
-[ext_resource type="Script" path="res://Scripts/spike_head.gd" id="1_gq3h2"]
+[ext_resource type="Script" path="res://Scripts/rock_head.gd" id="1_gq3h2"]
 [ext_resource type="Texture2D" uid="uid://dlwxe7ud3chpa" path="res://Assets/Traps/Spike Head/Blink (54x52).png" id="1_x4dir"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v65jf"]

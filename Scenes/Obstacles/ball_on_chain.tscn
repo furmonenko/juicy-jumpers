@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://bonndu0tnwnq4"]
+
+[ext_resource type="Script" path="res://Scripts/Obstacles/ball_on_chain.gd" id="1_wh0ug"]
+[ext_resource type="Texture2D" uid="uid://cn15h6qaunrl2" path="res://Assets/Traps/Spiked Ball/Chain.png" id="2_m28h5"]
+[ext_resource type="PackedScene" uid="uid://bsdi1csdtd25h" path="res://Scenes/Obstacles/spiked_ball.tscn" id="3_ea5mj"]
+[ext_resource type="PackedScene" uid="uid://b5angctj2t7wg" path="res://Scenes/Enemies/rock_head.tscn" id="4_bn4vp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aa6ht"]
+radius = 2.0
+height = 16.0
+
+[node name="Ball On Chain" type="Node2D"]
+position = Vector2(-1, 66)
+script = ExtResource("1_wh0ug")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(1, -50)
+node_a = NodePath("../Rock Head")
+node_b = NodePath("../Chains")
+
+[node name="Chains" type="RigidBody2D" parent="."]
+position = Vector2(1, -50)
+collision_layer = 0
+collision_mask = 2
+freeze_mode = 1
+linear_velocity = Vector2(5000, 0)
+linear_damp_mode = 1
+linear_damp = 1.0
+
+[node name="Line2D" type="Line2D" parent="Chains"]
+texture_repeat = 2
+position = Vector2(0, -16)
+points = PackedVector2Array(0, 16, 0, 34)
+width = 6.0
+texture = ExtResource("2_m28h5")
+texture_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chains"]
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_aa6ht")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0.714996, -31.59)
+node_a = NodePath("../Chains")
+node_b = NodePath("../Chains2")
+
+[node name="Chains2" type="RigidBody2D" parent="."]
+position = Vector2(1, -32)
+collision_layer = 0
+collision_mask = 2
+freeze_mode = 1
+
+[node name="Line2D" type="Line2D" parent="Chains2"]
+texture_repeat = 2
+position = Vector2(0, -16)
+points = PackedVector2Array(0, 16, 0, 34)
+width = 6.0
+texture = ExtResource("2_m28h5")
+texture_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chains2"]
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_aa6ht")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(0.714996, -13.19)
+node_a = NodePath("../Chains2")
+node_b = NodePath("../Spiked Ball")
+
+[node name="Rock Head" parent="." instance=ExtResource("4_bn4vp")]
+position = Vector2(1, -66)
+
+[node name="Spiked Ball" parent="." instance=ExtResource("3_ea5mj")]
