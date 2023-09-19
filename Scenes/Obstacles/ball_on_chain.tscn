@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bonndu0tnwnq4"]
+[gd_scene load_steps=7 format=3 uid="uid://bonndu0tnwnq4"]
 
 [ext_resource type="Script" path="res://Scripts/Obstacles/ball_on_chain.gd" id="1_wh0ug"]
 [ext_resource type="Texture2D" uid="uid://cn15h6qaunrl2" path="res://Assets/Traps/Spiked Ball/Chain.png" id="2_m28h5"]
+[ext_resource type="AudioStream" uid="uid://6s2rptifwlpv" path="res://Sounds/sweep.wav" id="2_rgd0e"]
 [ext_resource type="PackedScene" uid="uid://bsdi1csdtd25h" path="res://Scenes/Obstacles/spiked_ball.tscn" id="3_ea5mj"]
-[ext_resource type="PackedScene" uid="uid://b5angctj2t7wg" path="res://Scenes/Enemies/rock_head.tscn" id="4_bn4vp"]
+[ext_resource type="PackedScene" uid="uid://b5angctj2t7wg" path="res://Enemies/rock_head.tscn" id="4_bn4vp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aa6ht"]
 radius = 2.0
@@ -12,6 +13,9 @@ height = 16.0
 [node name="Ball On Chain" type="Node2D"]
 position = Vector2(-1, 66)
 script = ExtResource("1_wh0ug")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_rgd0e")
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="."]
 position = Vector2(1, -50)

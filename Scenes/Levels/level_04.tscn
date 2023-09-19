@@ -1,9 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://bwbljc5gefa40"]
+[gd_scene load_steps=20 format=3 uid="uid://bwbljc5gefa40"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_epb4f"]
-[ext_resource type="Resource" uid="uid://bngldww2eg000" path="res://score_resource.tres" id="2_eivxc"]
+[ext_resource type="PackedScene" uid="uid://dlcc4m70f3ejd" path="res://Scenes/Levels/level_05.tscn" id="2_0r5ea"]
 [ext_resource type="PackedScene" uid="uid://bp5p80rncbtit" path="res://Scenes/UI/back_ground.tscn" id="3_yr6jh"]
-[ext_resource type="PackedScene" uid="uid://c172wwusrpsx0" path="res://Scenes/hud.tscn" id="4_ehx31"]
 [ext_resource type="PackedScene" uid="uid://b00456xk0q6g7" path="res://Scenes/end_point.tscn" id="5_um08c"]
 [ext_resource type="PackedScene" uid="uid://2kukqwpr6sgb" path="res://Scenes/Obstacles/chains.tscn" id="7_23w5k"]
 [ext_resource type="PackedScene" uid="uid://cwkpnf3d4k5dk" path="res://Scenes/Fruits/cherries.tscn" id="8_l5t4r"]
@@ -13,9 +12,37 @@
 [ext_resource type="PackedScene" uid="uid://cx84ajhc3tgcs" path="res://Scenes/Obstacles/jump_pad.tscn" id="10_qj7ux"]
 [ext_resource type="PackedScene" uid="uid://bqf0b3oakmvi4" path="res://Scenes/player.tscn" id="11_p8x0v"]
 [ext_resource type="PackedScene" uid="uid://me0y4ojnltm4" path="res://Scenes/Obstacles/fire.tscn" id="13_j35sk"]
-[ext_resource type="PackedScene" uid="uid://cifvqat6ava64" path="res://Scenes/Enemies/mushroom.tscn" id="15_m1t5h"]
+[ext_resource type="PackedScene" uid="uid://cifvqat6ava64" path="res://Assets/Enemies/Mushroom/mushroom.tscn" id="15_m1t5h"]
 [ext_resource type="PackedScene" uid="uid://crtjwcss7cqfm" path="res://Scenes/Obstacles/fan_platform.tscn" id="15_qebbq"]
-[ext_resource type="PackedScene" uid="uid://cs7euki5k1x0m" path="res://Scenes/Enemies/ai_finish_point.tscn" id="16_omax5"]
+[ext_resource type="PackedScene" uid="uid://cs7euki5k1x0m" path="res://Enemies/ai_finish_point.tscn" id="16_omax5"]
+
+[sub_resource type="GDScript" id="GDScript_1cmb0"]
+script/source = "extends Resource
+class_name Score
+
+var score : int
+var max_score : int
+var next_level : PackedScene
+
+func _init() -> void:
+	score = 0
+	next_level = null
+
+func set_score(new_score):
+	score = new_score
+	
+	if score > max_score:
+		max_score = score
+
+func set_next_level(new_next_level):
+	next_level = new_next_level
+
+func get_score():
+	return score
+"
+
+[sub_resource type="Resource" id="Resource_68b5m"]
+script = SubResource("GDScript_1cmb0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnmcx"]
 size = Vector2(18, 176.25)
@@ -25,15 +52,13 @@ size = Vector2(9, 64)
 
 [node name="Level 4" type="Node2D"]
 script = ExtResource("1_epb4f")
-score_res = ExtResource("2_eivxc")
+next_level = ExtResource("2_0r5ea")
+score_res = SubResource("Resource_68b5m")
+level_index = 3
 
 [node name="BackGround" parent="." instance=ExtResource("3_yr6jh")]
 
 [node name="UI" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="UI" instance=ExtResource("4_ehx31")]
-offset_top = 8.0
-offset_bottom = 8.0
 
 [node name="EndPoint" parent="." instance=ExtResource("5_um08c")]
 position = Vector2(28, 272)
@@ -81,8 +106,9 @@ rotation = 0.00892842
 progress = 71.497
 
 [node name="Chains Path3" parent="Traps" instance=ExtResource("7_23w5k")]
-position = Vector2(252, 82)
+position = Vector2(256, 64)
 rotation = 1.5708
+MOVEMENT_RATIO = 0.4
 
 [node name="Spike" parent="Traps" instance=ExtResource("8_qh2rl")]
 position = Vector2(368, 104)
@@ -194,7 +220,7 @@ position = Vector2(432, 256)
 scale = Vector2(-1, 1)
 
 [node name="Player" parent="." instance=ExtResource("11_p8x0v")]
-position = Vector2(40, 256)
+position = Vector2(36, 256)
 
 [node name="AI_FinishPoint" parent="." instance=ExtResource("16_omax5")]
 

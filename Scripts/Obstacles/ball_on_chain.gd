@@ -8,6 +8,7 @@ var dropped_chains :bool = false
 
 func _ready() -> void:
 	rock_head.connect("got_hit", drop_chains)
+	$AudioStreamPlayer2D.play()
 	
 func drop_chains():
 	if !dropped_chains:

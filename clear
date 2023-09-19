@@ -1,0 +1,29 @@
+[33mcommit 0a933e81bbba39d6097abb2b4e5fff8afdc5f412[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Zakharii Furmanets <zfurmanec@gmail.com>
+Date:   Sun Sep 17 16:55:28 2023 +0200
+
+    add ball on chain
+
+[33mcommit 1c779a0a50dcd4b7016f459c3801a78bad0804f5[m
+Author: Zakharii Furmanets <zfurmanec@gmail.com>
+Date:   Fri Sep 15 19:16:51 2023 +0200
+
+    added fire and mushroom mob
+
+[33mcommit e32fef411c8a9befd7575c23472c50deb3528c2d[m
+Author: Zakharii Furmanets <zfurmanec@gmail.com>
+Date:   Fri Sep 15 16:45:12 2023 +0200
+
+    added 4th level
+
+[33mcommit 09aac4de450c96d53b523b2b8c3c7c9c84d4cd06[m
+Author: Zakharii Furmanets <zfurmanec@gmail.com>
+Date:   Sun Aug 27 16:28:33 2023 +0200
+
+    added basic esc menu with level choosing
+
+[33mcommit 229172823922691c45c30ed59b86e4fcc0ca2a3f[m
+Author: Zakharii Furmanets <zfurmanec@gmail.com>
+Date:   Sat Aug 26 09:55:49 2023 +0200
+
+    fixed wall jump bug

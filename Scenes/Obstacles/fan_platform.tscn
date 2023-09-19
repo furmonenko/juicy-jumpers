@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://crtjwcss7cqfm"]
+[gd_scene load_steps=12 format=3 uid="uid://crtjwcss7cqfm"]
 
 [ext_resource type="Script" path="res://Scripts/Obstacles/fan_platform.gd" id="1_avmu7"]
 [ext_resource type="Texture2D" uid="uid://xinhrksl4rff" path="res://Assets/Traps/Fan/Off.png" id="1_b2kfs"]
 [ext_resource type="Texture2D" uid="uid://cd2ny8n7su4v3" path="res://Assets/Traps/Fan/On (24x8).png" id="2_02rov"]
+[ext_resource type="AudioStream" uid="uid://cin3tvm3yk8tj" path="res://Sounds/old fan.wav" id="4_unnr4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6uoo"]
 atlas = ExtResource("2_02rov")
@@ -57,6 +58,12 @@ size = Vector2(20, 117)
 [node name="Fan Platform" type="Node2D"]
 script = ExtResource("1_avmu7")
 
+[node name="Sound Play Timer" type="Timer" parent="."]
+wait_time = 1.7
+
+[node name="Fan Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_unnr4")
+
 [node name="JumpArea" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 2
@@ -80,5 +87,6 @@ collision_mask = 2
 position = Vector2(0, -58.5)
 shape = SubResource("RectangleShape2D_2oiow")
 
+[connection signal="timeout" from="Sound Play Timer" to="." method="_on_sound_play_timer_timeout"]
 [connection signal="body_entered" from="JumpArea" to="." method="_on_jump_area_body_entered"]
 [connection signal="body_exited" from="CollisionArea" to="." method="_on_collision_area_body_exited"]

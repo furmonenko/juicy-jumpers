@@ -6,3 +6,6 @@ class_name Saw
 
 func _ready() -> void:
 	anim_sprite.play_backwards()
+
+func play_sound():
+	AudioPlayer.play_sound($"Saw Sound")

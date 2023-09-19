@@ -5,6 +5,7 @@ class_name Player
 @onready var anim_sprite = $AnimatedSprite2D
 @onready var state_machine :StateMachine = $StateMachine
 @onready var collision_shape = $CollisionShape2D
+@onready var footstep_scene = preload("res://Scenes/Visual Effects/footstep_particle.tscn")
 
 @export var GRAVITY = 40
 @export var SPEED = 200
@@ -32,12 +33,6 @@ func _physics_process(_delta: float) -> void:
 	
 	if should_fly:
 		velocity.y = -200
-#		elif
-#		velocity.y -= 50
-		# state_machine.switch_state($StateMachine/AirState)
-#	else:
-#		if velocity.y <= 0:
-#			velocity.y += 10
 	
 	if !is_on_floor():
 		velocity.y += GRAVITY
@@ -64,10 +59,11 @@ func update_animation_parameters():
 		
 	anim_tree.set("parameters/Idle & Walk/blend_position", direction)
 
-func jump(jump_force):
+func jump(jump_force, sfx = $"Sound Effects/Jump"):
 	velocity.y = jump_force
 	state_machine.switch_state($StateMachine/AirState)
-	
+	sfx.play()
+
 func wall_jump():
 	direction = -direction
 	
@@ -79,9 +75,12 @@ func wall_jump():
 	
 	velocity.x = 200 * direction
 	velocity.y = WALL_JUMP_FORCE
+	# $"Sound Effects/Jump".play()
+	AudioPlayer.play_sound($"Sound Effects/Jump")
 
 func hit():
 	state_machine.switch_state($StateMachine/HitState)
+	AudioPlayer.play_sound($"Sound Effects/Death")
 
 func _on_hit_ended():
 	emit_signal("player_died")
@@ -96,10 +95,15 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 	print(area.name)
 	hit()
 
-#func _on_hit_area_body_entered(body: Node2D) -> void:
-#	if body is Enemy:
-#		hit()
-
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Move Down"):
 		global_position.y += 1
+
+func create_foot_step():
+	if is_on_floor():
+		var footstep = footstep_scene.instantiate()
+		add_child(footstep)
+		footstep.global_position = $Marker2D.global_position
+
+func play_footstep_sound():
+	AudioPlayer.play_sound($"Sound Effects/Footsteps")

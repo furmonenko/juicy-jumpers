@@ -1,9 +1,12 @@
-[gd_scene load_steps=98 format=3 uid="uid://bqf0b3oakmvi4"]
+[gd_scene load_steps=102 format=3 uid="uid://bqf0b3oakmvi4"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_qn1jx"]
 [ext_resource type="Texture2D" uid="uid://dap04n8s7unme" path="res://Assets/Main Characters/Virtual Guy/Double Jump (32x32).png" id="2_bc34e"]
+[ext_resource type="AudioStream" uid="uid://uucoq4ydfyy0" path="res://Sounds/player step.wav" id="2_x86o2"]
 [ext_resource type="Texture2D" uid="uid://cieywyrjqkvot" path="res://Assets/Main Characters/Virtual Guy/Fall (32x32).png" id="3_0kwak"]
+[ext_resource type="AudioStream" uid="uid://bqn0xdtog50h6" path="res://Sounds/Jump 1.wav" id="3_g1ke1"]
 [ext_resource type="Texture2D" uid="uid://ceithg7ydeyi4" path="res://Assets/Main Characters/Virtual Guy/Hit (32x32).png" id="4_lf834"]
+[ext_resource type="AudioStream" uid="uid://d0hmno3agm7el" path="res://Sounds/player death.wav" id="4_wolr2"]
 [ext_resource type="Texture2D" uid="uid://dgyytcouf36oe" path="res://Assets/Main Characters/Virtual Guy/Idle (32x32).png" id="5_ox6iq"]
 [ext_resource type="Texture2D" uid="uid://dxu11m5e7cfx6" path="res://Assets/Main Characters/Virtual Guy/Jump (32x32).png" id="6_g7g6c"]
 [ext_resource type="Script" path="res://Scripts/Player States/falling_state.gd" id="7_etxw4"]
@@ -543,6 +546,37 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"create_foot_step"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.05, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_footstep_sound"
+}, {
+"args": [],
+"method": &"play_footstep_sound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_j6nq2"]
 resource_name = "Walk_Right"
@@ -572,6 +606,37 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"create_foot_step"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sound Effects/Footsteps")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.05, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_mceic"]
@@ -664,7 +729,6 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ibbuq"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hjyth"]
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d3kuj"]
 
@@ -690,12 +754,14 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k7rfm"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b06fa"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_06h81"]
 states/Double_Jump/node = SubResource("AnimationNodeAnimation_ddcoc")
 states/Double_Jump/position = Vector2(832.296, -20.894)
 states/End/position = Vector2(1036.8, -21.4377)
 states/Fall/node = SubResource("AnimationNodeAnimation_ye63g")
-states/Fall/position = Vector2(879.481, 208.032)
+states/Fall/position = Vector2(991.481, 297.746)
 states/Hit/node = SubResource("AnimationNodeAnimation_sfmbl")
 states/Hit/position = Vector2(144.6, 88.6)
 "states/Idle & Walk/node" = SubResource("AnimationNodeBlendSpace1D_plexy")
@@ -704,15 +770,29 @@ states/Jump/node = SubResource("AnimationNodeAnimation_p5cwf")
 states/Jump/position = Vector2(588.154, -22.0863)
 states/Start/position = Vector2(244, -24.8509)
 states/Wall_Jump/node = SubResource("AnimationNodeAnimation_w5odt")
-states/Wall_Jump/position = Vector2(430.678, 285.64)
-transitions = ["Start", "Idle & Walk", SubResource("AnimationNodeStateMachineTransition_6wokb"), "Idle & Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_jcun3"), "Jump", "Double_Jump", SubResource("AnimationNodeStateMachineTransition_5s430"), "Double_Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_mgugb"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_ibbuq"), "Fall", "Idle & Walk", SubResource("AnimationNodeStateMachineTransition_hjyth"), "Fall", "Wall_Jump", SubResource("AnimationNodeStateMachineTransition_d3kuj"), "Double_Jump", "Wall_Jump", SubResource("AnimationNodeStateMachineTransition_tjljl"), "Jump", "Wall_Jump", SubResource("AnimationNodeStateMachineTransition_7xi5x"), "Idle & Walk", "Hit", SubResource("AnimationNodeStateMachineTransition_mvfha"), "Double_Jump", "Hit", SubResource("AnimationNodeStateMachineTransition_d11dk"), "Jump", "Hit", SubResource("AnimationNodeStateMachineTransition_2vmch"), "Fall", "Hit", SubResource("AnimationNodeStateMachineTransition_qs0pw"), "Fall", "Double_Jump", SubResource("AnimationNodeStateMachineTransition_pi0d0"), "Wall_Jump", "Double_Jump", SubResource("AnimationNodeStateMachineTransition_4wh1k"), "Wall_Jump", "Jump", SubResource("AnimationNodeStateMachineTransition_hp7yk"), "Wall_Jump", "Hit", SubResource("AnimationNodeStateMachineTransition_wekhv"), "Wall_Jump", "Idle & Walk", SubResource("AnimationNodeStateMachineTransition_k7rfm")]
-graph_offset = Vector2(71, -53)
+states/Wall_Jump/position = Vector2(152.964, 458.783)
+transitions = ["Start", "Idle & Walk", SubResource("AnimationNodeStateMachineTransition_6wokb"), "Idle & Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_jcun3"), "Jump", "Double_Jump", SubResource("AnimationNodeStateMachineTransition_5s430"), "Double_Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_mgugb"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_ibbuq"), "Fall", "Idle & Walk", SubResource("AnimationNodeStateMachineTransition_hjyth"), "Fall", "Wall_Jump", SubResource("AnimationNodeStateMachineTransition_d3kuj"), "Double_Jump", "Wall_Jump", SubResource("AnimationNodeStateMachineTransition_tjljl"), "Jump", "Wall_Jump", SubResource("AnimationNodeStateMachineTransition_7xi5x"), "Idle & Walk", "Hit", SubResource("AnimationNodeStateMachineTransition_mvfha"), "Double_Jump", "Hit", SubResource("AnimationNodeStateMachineTransition_d11dk"), "Jump", "Hit", SubResource("AnimationNodeStateMachineTransition_2vmch"), "Fall", "Hit", SubResource("AnimationNodeStateMachineTransition_qs0pw"), "Fall", "Double_Jump", SubResource("AnimationNodeStateMachineTransition_pi0d0"), "Wall_Jump", "Double_Jump", SubResource("AnimationNodeStateMachineTransition_4wh1k"), "Wall_Jump", "Jump", SubResource("AnimationNodeStateMachineTransition_hp7yk"), "Wall_Jump", "Hit", SubResource("AnimationNodeStateMachineTransition_wekhv"), "Wall_Jump", "Idle & Walk", SubResource("AnimationNodeStateMachineTransition_k7rfm"), "Idle & Walk", "Fall", SubResource("AnimationNodeStateMachineTransition_b06fa")]
+graph_offset = Vector2(305, -56)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -16)
 collision_layer = 2
 collision_mask = 193
 script = ExtResource("1_qn1jx")
+
+[node name="Sound Effects" type="Node2D" parent="."]
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="Sound Effects"]
+position = Vector2(0, 16)
+stream = ExtResource("2_x86o2")
+volume_db = -15.0
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Sound Effects"]
+stream = ExtResource("3_g1ke1")
+volume_db = -10.0
+
+[node name="Death" type="AudioStreamPlayer2D" parent="Sound Effects"]
+stream = ExtResource("4_wolr2")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state", "character", "animation_tree")]
 script = ExtResource("9_wdm3c")
@@ -738,6 +818,7 @@ script = ExtResource("7_hfu81")
 script = ExtResource("7_etxw4")
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -50.0
@@ -772,6 +853,9 @@ position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_txan8")
 debug_color = Color(0.623529, 0.45098, 0.745098, 0.419608)
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 15)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_78uns")
@@ -781,6 +865,6 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_06h81")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-"parameters/Idle & Walk/blend_position" = 0.0
+"parameters/Idle & Walk/blend_position" = -0.00128698
 
 [connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_area_entered"]

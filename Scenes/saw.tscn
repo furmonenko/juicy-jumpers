@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cx2ks4r77hmpb"]
+[gd_scene load_steps=14 format=3 uid="uid://cx2ks4r77hmpb"]
 
 [ext_resource type="Texture2D" uid="uid://dnin5k1pj503m" path="res://Assets/Traps/Saw/On (38x38).png" id="1_of01u"]
 [ext_resource type="Script" path="res://Scripts/saw.gd" id="1_sxro2"]
+[ext_resource type="AudioStream" uid="uid://b4r3kncsqb7ay" path="res://Sounds/saw.wav" id="3_blu51"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiucj"]
 atlas = ExtResource("1_of01u")
@@ -85,3 +86,6 @@ frame_progress = 0.96854
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_oaxfn")
+
+[node name="Saw Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_blu51")

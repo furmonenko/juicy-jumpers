@@ -7,6 +7,9 @@ class_name GroundState
 
 func on_entered():
 	playback.travel("Idle & Walk")
+	$"../../Sound Effects/Footsteps".volume_db = -15
+	character.create_foot_step()
+	# character.play_footstep_sound()
 
 func state_process(_delta :float):
 	if Input.is_action_just_pressed("Jump"):

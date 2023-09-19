@@ -10,4 +10,6 @@ signal player_on_jump_pad(jump_force)
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		animated_sprite.play("Jump")
+		# $"Jump Sound".play()
+		AudioPlayer.play_sound($"Jump Sound")
 		body.jump(JUMP_FORCE)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cs7euki5k1x0m"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/AI_FinishPoint.gd" id="1_lyv87"]
+[ext_resource type="Script" path="res://Enemies/AI_FinishPoint.gd" id="1_lyv87"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yoi6s"]
 size = Vector2(9.5, 56)

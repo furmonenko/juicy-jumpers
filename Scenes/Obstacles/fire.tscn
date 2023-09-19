@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://me0y4ojnltm4"]
+[gd_scene load_steps=12 format=3 uid="uid://me0y4ojnltm4"]
 
 [ext_resource type="Script" path="res://Scripts/Obstacles/fire.gd" id="1_h2hpk"]
 [ext_resource type="Texture2D" uid="uid://b4v50cbgmhbi3" path="res://Assets/Traps/Fire/Off.png" id="1_lj3wk"]
 [ext_resource type="Texture2D" uid="uid://biyvlg2l567au" path="res://Assets/Traps/Fire/On (16x32).png" id="2_q0vu8"]
+[ext_resource type="AudioStream" uid="uid://bw0c11boe1v62" path="res://Sounds/fire.wav" id="4_c7l28"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t66ex"]
 atlas = ExtResource("1_lj3wk")
@@ -76,5 +77,9 @@ collision_mask = 2
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_ojtpd")
 debug_color = Color(0.294118, 0.52549, 0.917647, 0.419608)
+
+[node name="Fire Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_c7l28")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Turn On Area" to="." method="_on_turn_on_area_body_entered"]

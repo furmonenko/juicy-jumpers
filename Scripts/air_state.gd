@@ -10,6 +10,7 @@ class_name AirState
 var has_double_jump :bool = true
 
 func on_entered():
+	$"../../Sound Effects/Footsteps".volume_db = -100
 	has_double_jump = true
 
 func state_process(_delta :float):
