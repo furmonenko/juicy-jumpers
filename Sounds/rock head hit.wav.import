@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://xjlyffous6xt"
+path="res://.godot/imported/rock head hit.wav-def4cf2ccc88061fb7bc6a5eb1c37570.sample"
+
+[deps]
+
+source_file="res://Sounds/rock head hit.wav"
+dest_files=["res://.godot/imported/rock head hit.wav-def4cf2ccc88061fb7bc6a5eb1c37570.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

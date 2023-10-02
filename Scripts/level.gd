@@ -10,7 +10,8 @@ extends Node2D
 @export var score_res : Resource
 @export var level_index :int
 
-var level_complete_scene = preload("res://Scenes/level_complete_scene.tscn")
+var player_stats :PlayerStats = load("res://Resources/player_stats.tres")
+
 var escape_menu_scene = load("res://Scenes/UI/escape_menu.tscn")
 
 var escape_menu :EscapeMenu
@@ -18,9 +19,14 @@ var item_count : int
 var has_already_won :bool = false
 var item_sfx :AudioStreamPlayer2D
 
+signal level_completed
+signal player_died
+signal game_finished
+
 func _ready() -> void:
 	SaveGame.progress_res.finished_levels[level_index] = true
 	
+	player_stats.connect("no_hp_left", _on_player_died)
 	player.connect("player_died", _on_player_died)
 	escape_menu = escape_menu_scene.instantiate()
 	escape_menu.visible = false
@@ -37,19 +43,21 @@ func _physics_process(delta: float) -> void:
 func _on_item_picked_up(points):	item_count -= 1
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("Pause"):
-		enter_escape_menu()
-	if event.is_action_pressed("Restart Level"):
-		get_tree().reload_current_scene()
-
-func enter_escape_menu():
-	escape_menu.visible = !escape_menu.visible
+	#if event.is_action_pressed("Pause"):
+	#	enter_escape_menu()
+#	if event.is_action_pressed("Restart Level"):
+#		get_tree().reload_current_scene()
+	pass
 
 func _on_end_point_player_entered(_body) -> void:
 	await get_tree().create_timer(2).timeout
 	score_res.set_next_level(next_level)
 	SaveGame.save_progress()
-	get_tree().change_scene_to_packed(level_complete_scene)
+	emit_signal("level_completed")
 
 func _on_player_died():
-	get_tree().reload_current_scene()
+	if player_stats.HP > 1:
+		player_stats.decrease_health()
+		emit_signal("player_died")
+	elif player_stats.HP:
+		emit_signal("game_finished")

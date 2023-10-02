@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bp5p80rncbtit" path="res://Scenes/UI/back_ground.tscn" id="2_lvkfk"]
 [ext_resource type="PackedScene" uid="uid://fgaojvskrpel" path="res://Scenes/Levels/level_02.tscn" id="2_vjvsw"]
 [ext_resource type="PackedScene" uid="uid://cn1gf4dy13k48" path="res://Scenes/Obstacles/spike.tscn" id="3_dk0m5"]
-[ext_resource type="Resource" uid="uid://bngldww2eg000" path="res://score_resource.tres" id="3_dlcqf"]
+[ext_resource type="Resource" path="res://score_resource.tres" id="3_dlcqf"]
 [ext_resource type="PackedScene" uid="uid://dkes3f5xnc4le" path="res://Scenes/Fruits/apple.tscn" id="3_yro1c"]
 [ext_resource type="PackedScene" uid="uid://cx84ajhc3tgcs" path="res://Scenes/Obstacles/jump_pad.tscn" id="8_hhq4i"]
 [ext_resource type="PackedScene" uid="uid://bqf0b3oakmvi4" path="res://Scenes/player.tscn" id="9_fvp2p"]
@@ -186,7 +186,7 @@ position = Vector2(298.5, 183.25)
 shape = SubResource("RectangleShape2D_5yv6c")
 
 [node name="Player" parent="." instance=ExtResource("9_fvp2p")]
-position = Vector2(41, 176)
+position = Vector2(40, 176)
 
 [node name="SpawnPosition" type="Marker2D" parent="."]
 position = Vector2(41, 182)

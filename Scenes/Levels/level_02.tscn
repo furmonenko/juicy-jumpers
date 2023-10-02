@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bp5p80rncbtit" path="res://Scenes/UI/back_ground.tscn" id="2_1truj"]
 [ext_resource type="PackedScene" uid="uid://dhuo3g4s1ftak" path="res://Scenes/Levels/level_03.tscn" id="2_8xiqx"]
 [ext_resource type="PackedScene" uid="uid://b00456xk0q6g7" path="res://Scenes/end_point.tscn" id="4_bxcvu"]
-[ext_resource type="Resource" uid="uid://bngldww2eg000" path="res://score_resource.tres" id="7_hhwsw"]
+[ext_resource type="Resource" path="res://score_resource.tres" id="7_hhwsw"]
 [ext_resource type="PackedScene" uid="uid://bwmc7c4kgjyxu" path="res://Scenes/tile_map.tscn" id="7_oehfg"]
 [ext_resource type="PackedScene" uid="uid://cn1gf4dy13k48" path="res://Scenes/Obstacles/spike.tscn" id="8_4vxys"]
 [ext_resource type="PackedScene" uid="uid://cx84ajhc3tgcs" path="res://Scenes/Obstacles/jump_pad.tscn" id="8_025pw"]

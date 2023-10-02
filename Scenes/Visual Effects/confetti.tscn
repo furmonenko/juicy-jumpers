@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://b46rgb5pr8rm8"]
+
+[ext_resource type="Script" path="res://Scripts/confetti.gd" id="1_mokck"]
+[ext_resource type="Texture2D" uid="uid://blb6twr7hn8un" path="res://Assets/Other/Confetti (16x16).png" id="1_pe7r4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pro5w"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_62eh3"]
+emission_shape = 3
+emission_box_extents = Vector3(480, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 200, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 1000.0
+angular_velocity_max = 20.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 500.0
+damping_max = 1000.0
+scale_min = 0.4
+anim_offset_max = 1.0
+
+[node name="Confetti" type="Node2D"]
+script = ExtResource("1_mokck")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_pro5w")
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_62eh3")
+texture = ExtResource("1_pe7r4")
+lifetime = 4.0
+randomness = 0.28
+trail_lifetime = 2.35
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

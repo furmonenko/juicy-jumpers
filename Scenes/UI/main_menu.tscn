@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://benjv5bt10o8b"]
+
+[ext_resource type="Script" path="res://Scripts/level_complete_scene.gd" id="1_6ag7s"]
+[ext_resource type="PackedScene" uid="uid://bp5p80rncbtit" path="res://Scenes/UI/back_ground.tscn" id="2_0fpas"]
+[ext_resource type="FontFile" uid="uid://dted56xxwb7i5" path="res://Fonts/Kenney Pixel Square.ttf" id="3_xuyqo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3gv8f"]
+line_spacing = 6.0
+font = ExtResource("3_xuyqo")
+font_size = 32
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Main Menu" type="Node2D"]
+position = Vector2(256, 128)
+script = ExtResource("1_6ag7s")
+
+[node name="BackGround" parent="." instance=ExtResource("2_0fpas")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Juicy Jumpers" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -69.0
+offset_right = 140.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "JUICY JUMPERS"
+label_settings = SubResource("LabelSettings_3gv8f")
+
+[node name="Play Game Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 3.0
+offset_right = 48.0
+offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_xuyqo")
+text = "Play"
+
+[node name="Exit Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 51.0
+offset_right = 48.0
+offset_bottom = 91.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_xuyqo")
+text = "Exit
+"
+
+[connection signal="pressed" from="Control/Play Game Button" to="." method="_on_play_game_button_pressed"]
+[connection signal="pressed" from="Control/Exit Button" to="." method="_on_exit_button_pressed"]

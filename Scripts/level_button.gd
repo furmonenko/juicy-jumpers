@@ -5,7 +5,9 @@ class_name LevelBbutton
 @export var level_index :int
 
 var blue_buttons_folder :String = "res://Assets/Menu/Levels/"
-var grey_buttons_folder :String = "res://Assets/Menu/Levels/Grey Buttons/" 
+var grey_buttons_folder :String = "res://Assets/Menu/Levels/Grey Buttons/"
+
+signal level_button_pressed(level_scene)
 
 func _ready() -> void:
 	if SaveGame.progress_res.finished_levels[level_index] == false:
@@ -15,4 +17,4 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	if SaveGame.progress_res.finished_levels[level_index] == true:
-		get_tree().change_scene_to_packed(level_scene)
+		emit_signal("level_button_pressed", level_scene)

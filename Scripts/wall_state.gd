@@ -26,4 +26,7 @@ func state_process(_delta):
 		next_state = air_state
 	
 	if character.is_on_floor():
+		character.velocity.x = character.direction * 200
+		print(character.direction)
+		character.change_flip_h()
 		next_state = ground_state

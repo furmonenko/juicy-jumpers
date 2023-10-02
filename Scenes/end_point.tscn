@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://b00456xk0q6g7"]
+[gd_scene load_steps=49 format=3 uid="uid://b00456xk0q6g7"]
 
 [ext_resource type="Texture2D" uid="uid://3bksmowr3afc" path="res://Assets/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="1_4cjbl"]
 [ext_resource type="Script" path="res://Scripts/end_point.gd" id="1_j5q48"]
@@ -394,11 +394,39 @@ tracks/1/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_44vcc"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_22x5s"]
 _data = {
 "Appear": SubResource("Animation_7l1xd"),
 "Flag Idle": SubResource("Animation_sb2u4"),
 "Flag Out": SubResource("Animation_ftu68"),
+"Idle": SubResource("Animation_44vcc"),
 "RESET": SubResource("Animation_jv1n0")
 }
 

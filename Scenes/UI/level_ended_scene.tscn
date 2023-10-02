@@ -1,0 +1,326 @@
+[gd_scene load_steps=27 format=3 uid="uid://5wf5yy7u2m6h"]
+
+[ext_resource type="Script" path="res://Scripts/level_ended_scene.gd" id="1_156xy"]
+[ext_resource type="PackedScene" uid="uid://bp5p80rncbtit" path="res://Scenes/UI/back_ground.tscn" id="2_qodbr"]
+[ext_resource type="Texture2D" uid="uid://dgyytcouf36oe" path="res://Assets/Main Characters/Virtual Guy/Idle (32x32).png" id="2_swlwb"]
+[ext_resource type="Texture2D" uid="uid://bx256bywtdlnr" path="res://Assets/Main Characters/Desappearing (96x96).png" id="2_ykh8i"]
+[ext_resource type="Texture2D" uid="uid://ddv16qogett2x" path="res://Assets/pngwing.com.png" id="3_ofwtw"]
+[ext_resource type="FontFile" uid="uid://b5vumd0snpxx3" path="res://Fonts/Kenney Mini Square.ttf" id="6_evff0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sq7l2"]
+atlas = ExtResource("2_ykh8i")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s37f"]
+atlas = ExtResource("2_ykh8i")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft4vq"]
+atlas = ExtResource("2_ykh8i")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jifq1"]
+atlas = ExtResource("2_ykh8i")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq6lt"]
+atlas = ExtResource("2_ykh8i")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vj1lc"]
+atlas = ExtResource("2_ykh8i")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wg4p"]
+atlas = ExtResource("2_ykh8i")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c13ny"]
+atlas = ExtResource("2_swlwb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udoir"]
+atlas = ExtResource("2_swlwb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bfe7"]
+atlas = ExtResource("2_swlwb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0df6q"]
+atlas = ExtResource("2_swlwb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj824"]
+atlas = ExtResource("2_swlwb")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kwvl"]
+atlas = ExtResource("2_swlwb")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vpwu"]
+atlas = ExtResource("2_swlwb")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp7p7"]
+atlas = ExtResource("2_swlwb")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ipsk"]
+atlas = ExtResource("2_swlwb")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqc5b"]
+atlas = ExtResource("2_swlwb")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhi8g"]
+atlas = ExtResource("2_swlwb")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8bg6j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sq7l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s37f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft4vq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jifq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq6lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vj1lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wg4p")
+}],
+"loop": false,
+"name": &"Disapear",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c13ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udoir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bfe7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0df6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj824")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kwvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vpwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp7p7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ipsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqc5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhi8g")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 20.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ii515"]
+font = ExtResource("6_evff0")
+font_size = 12
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Level Ended Scene" type="Node2D"]
+position = Vector2(256, 128)
+script = ExtResource("1_156xy")
+
+[node name="BackGround" parent="." instance=ExtResource("2_qodbr")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player Sprite" type="Node2D" parent="Control/Panel"]
+position = Vector2(88, 104)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Panel/Player Sprite"]
+position = Vector2(-48, -80)
+sprite_frames = SubResource("SpriteFrames_8bg6j")
+animation = &"Disapear"
+autoplay = "Idle"
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health" type="Node2D" parent="Control/Panel"]
+position = Vector2(-28, -7)
+
+[node name="Heart_0" type="Sprite2D" parent="Control/Panel/Health"]
+visible = false
+position = Vector2(52, 63)
+scale = Vector2(0.002, 0.002)
+texture = ExtResource("3_ofwtw")
+
+[node name="Heart_1" type="Sprite2D" parent="Control/Panel/Health"]
+visible = false
+position = Vector2(68, 63)
+scale = Vector2(0.002, 0.002)
+texture = ExtResource("3_ofwtw")
+
+[node name="Heart_2" type="Sprite2D" parent="Control/Panel/Health"]
+visible = false
+position = Vector2(84, 63)
+scale = Vector2(0.002, 0.002)
+texture = ExtResource("3_ofwtw")
+
+[node name="Tips" type="Node2D" parent="Control"]
+
+[node name="Restart Level" type="Label" parent="Control/Tips"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 48.0
+offset_right = 129.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "press R to restart the level if got stuck"
+label_settings = SubResource("LabelSettings_ii515")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wall Jump" type="Label" parent="Control/Tips"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 48.0
+offset_right = 67.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "try to jump on a wall"
+label_settings = SubResource("LabelSettings_ii515")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rock Head" type="Label" parent="Control/Tips"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 48.0
+offset_right = 67.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "is there something under a rock head?"
+label_settings = SubResource("LabelSettings_ii515")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rock Head_02" type="Label" parent="Control/Tips"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 48.0
+offset_right = 67.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rock head has vulnerable spot on top"
+label_settings = SubResource("LabelSettings_ii515")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fire" type="Label" parent="Control/Tips"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 48.0
+offset_right = 67.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fire is burning only few seconds
+"
+label_settings = SubResource("LabelSettings_ii515")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlcc4m70f3ejd"]
+[gd_scene load_steps=22 format=3 uid="uid://dlcc4m70f3ejd"]
 
-[ext_resource type="Script" path="res://Scripts/level.gd" id="1_7kj0j"]
+[ext_resource type="Script" path="res://Scripts/final_level.gd" id="1_22exf"]
 [ext_resource type="PackedScene" uid="uid://bp5p80rncbtit" path="res://Scenes/UI/back_ground.tscn" id="3_jtuyu"]
+[ext_resource type="AudioStream" uid="uid://qeybn2k0gxwh" path="res://Sounds/game end.wav" id="3_o1jju"]
 [ext_resource type="PackedScene" uid="uid://b00456xk0q6g7" path="res://Scenes/end_point.tscn" id="5_f8gud"]
 [ext_resource type="Texture2D" uid="uid://50hmh0u2b3jx" path="res://Assets/Terrain/Terrain (16x16).png" id="6_dyi2j"]
 [ext_resource type="PackedScene" uid="uid://bonndu0tnwnq4" path="res://Scenes/Obstacles/ball_on_chain.tscn" id="7_jjlqm"]
@@ -15,34 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://bqf0b3oakmvi4" path="res://Scenes/player.tscn" id="15_e7ofs"]
 [ext_resource type="Script" path="res://Enemies/AI_FinishPoint.gd" id="16_wbvrl"]
 [ext_resource type="PackedScene" uid="uid://me0y4ojnltm4" path="res://Scenes/Obstacles/fire.tscn" id="17_r12bh"]
-
-[sub_resource type="GDScript" id="GDScript_1cmb0"]
-script/source = "extends Resource
-class_name Score
-
-var score : int
-var max_score : int
-var next_level : PackedScene
-
-func _init() -> void:
-	score = 0
-	next_level = null
-
-func set_score(new_score):
-	score = new_score
-	
-	if score > max_score:
-		max_score = score
-
-func set_next_level(new_next_level):
-	next_level = new_next_level
-
-func get_score():
-	return score
-"
-
-[sub_resource type="Resource" id="Resource_68b5m"]
-script = SubResource("GDScript_1cmb0")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_anplt"]
 texture = ExtResource("6_dyi2j")
@@ -1099,16 +1072,21 @@ size = Vector2(9, 64)
 size = Vector2(12.2813, 30)
 
 [node name="Level 5" type="Node2D"]
-script = ExtResource("1_7kj0j")
-score_res = SubResource("Resource_68b5m")
+script = ExtResource("1_22exf")
 level_index = 4
 
 [node name="BackGround" parent="." instance=ExtResource("3_jtuyu")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Confetti Sounds" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("3_o1jju")
+volume_db = -5.0
+
 [node name="EndPoint" parent="." instance=ExtResource("5_f8gud")]
-position = Vector2(40, 209)
+position = Vector2(40, 207)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_sc0cl")

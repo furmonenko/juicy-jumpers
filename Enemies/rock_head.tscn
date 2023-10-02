@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5angctj2t7wg"]
+[gd_scene load_steps=17 format=3 uid="uid://b5angctj2t7wg"]
 
 [ext_resource type="Script" path="res://Scripts/Obstacles/rock_head.gd" id="1_rj3ae"]
 [ext_resource type="Texture2D" uid="uid://cxj641bivq5ax" path="res://Assets/Traps/Rock Head/Blink (42x42).png" id="2_ncjlc"]
 [ext_resource type="Texture2D" uid="uid://l588ho267nux" path="res://Assets/Traps/Rock Head/Top Hit (42x42).png" id="3_wlkk8"]
 [ext_resource type="Texture2D" uid="uid://d3b432be1ls54" path="res://Assets/Traps/Rock Head/Idle.png" id="4_nd3pq"]
+[ext_resource type="AudioStream" uid="uid://xjlyffous6xt" path="res://Sounds/rock head hit.wav" id="5_6w7vy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjnsq"]
 atlas = ExtResource("2_ncjlc")
@@ -112,6 +113,10 @@ collision_mask = 2
 position = Vector2(0, -16.5)
 shape = SubResource("RectangleShape2D_202ch")
 debug_color = Color(0.984314, 0, 0, 0.419608)
+
+[node name="Hit Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_6w7vy")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Hit Area" to="." method="_on_hit_area_body_entered"]
 [connection signal="body_exited" from="Hit Area" to="." method="_on_hit_area_body_exited"]

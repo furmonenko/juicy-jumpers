@@ -20,6 +20,7 @@ func _on_hit_area_body_entered(body: Node2D) -> void:
 		print("player on rock head")
 		animated_sprite.play(hit_animation)
 		emit_signal("got_hit")
+		$"Hit Sound".play()
 		
 		if body.direction == 0:
 			body.direction = 1

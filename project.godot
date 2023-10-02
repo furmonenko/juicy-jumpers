@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Juicy Jumpers"
-run/main_scene="res://Scenes/Levels/level_01.tscn"
+run/main_scene="res://Scenes/Levels/Scene_Manager.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-AudioPlayer="*res://Scenes/Global/audio_player.gd"
+AudioPlayer="*res://Scripts/Global/audio_player.gd"
 SaveGame="*res://Resources/save_game.gd"
 
 [display]

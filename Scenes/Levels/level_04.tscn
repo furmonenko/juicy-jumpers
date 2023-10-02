@@ -220,7 +220,7 @@ position = Vector2(432, 256)
 scale = Vector2(-1, 1)
 
 [node name="Player" parent="." instance=ExtResource("11_p8x0v")]
-position = Vector2(36, 256)
+position = Vector2(36, 250)
 
 [node name="AI_FinishPoint" parent="." instance=ExtResource("16_omax5")]
 

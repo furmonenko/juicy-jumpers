@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ijqv060k2j0q"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/Scene_Manager.gd" id="1_7emtf"]
+[ext_resource type="PackedScene" uid="uid://bst4lvsv2a3jo" path="res://Scenes/UI/escape_menu.tscn" id="2_hev7k"]
+
+[node name="Scene_Manager" type="Node2D"]
+script = ExtResource("1_7emtf")
+
+[node name="Escape Menu" parent="." instance=ExtResource("2_hev7k")]
+visible = false
+z_index = 2000

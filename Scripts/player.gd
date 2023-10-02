@@ -92,7 +92,6 @@ func add_points(added_points):
 	points += added_points
 
 func _on_hit_area_area_entered(area: Area2D) -> void:
-	print(area.name)
 	hit()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -107,3 +106,6 @@ func create_foot_step():
 
 func play_footstep_sound():
 	AudioPlayer.play_sound($"Sound Effects/Footsteps")
+
+func change_flip_h():
+	anim_sprite.flip_h = !anim_sprite.flip_h

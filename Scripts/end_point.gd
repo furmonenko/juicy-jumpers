@@ -11,7 +11,7 @@ func spawn():
 
 func has_spawned():
 	collision.disabled = false
-	anim_player.play("Flag Out")
+	anim_player.play("Idle")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Flag Out":
@@ -20,4 +20,5 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
+		anim_player.play("Flag Out")
 		emit_signal("player_entered", body)
